@@ -1,0 +1,31 @@
+CREATE TABLE thrifted_clothes(id INTEGER,clothing_type TEXT, size TEXT,price NUMERIC, location TEXT);
+
+INSERT INTO thrifted_clothes VALUES 
+(1,'Hoodie','S',200,'QC'),
+(2,'Shirt','XL',150, 'QC'),
+(3,'Jacket','S',350,'Taytay'),
+(4,'Parka','M',750,'Katipunan'),
+(5,'Hoodie','S',200,'QC'),
+(6,'Shirt','XL',150, 'QC'),
+(8,'Jacket','S',350,'Taytay'),
+(9,'Parka','M',750,'Katipunan'),
+(10,'Hoodie','S',800,'QC'),
+(11,'Shirt','XL',150, 'QC'),
+(12,'Jacket','S',350,'Taytay'),
+(13,'Parka','M',650,'Katipunan'),
+(14,'Polo','S',450,'Taytay'),
+(15,'Long SLeeve','M',650,'Katipunan');
+
+--display the database ordered by price.
+SELECT *
+FROM thrifted_clothes
+ORDER BY price;
+
+--What items are greater than 200
+SELECT *
+FROM thrifted_clothes
+WHERE price>200;
+-- WHat is the most amount i have paid for a single item
+SELECT MAX(price) AS MOST_AMOUNT_PAID
+FROM thrifted_clothes
+;
