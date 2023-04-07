@@ -1,0 +1,44 @@
+SELECT COUNT (jan.orderID)
+FROM BIT_DB.JanSales jan
+WHERE LENGTH (jan.orderID)=6
+AND jan.orderID IS NOT NULL; 
+
+
+SELECT COUNT (jan.orderID)
+FROM BIT_DB.JanSales jan
+WHERE jan.Product='iPhone'
+AND LENGTH (jan.orderID)=6
+AND jan.orderID IS NOT NULL ;
+
+
+SELECT DISTINCT (c.acctnum)
+FROM BIT_DB.customers c
+INNER JOIN BIT_DB.FebSales feb
+ON c.order_id=feb.orderID
+WHERE LENGTH (c.order_id)=6
+AND c.order_id IS NOT NULL; 
+
+SELECT jan.Product, MIN(jan.price)
+FROM BIT_DB.JanSales jan
+WHERE LENGTH (jan.orderID)=6
+AND jan.orderID IS NOT NULL; 
+
+SELECT jan.Product, SUM (jan.Quantity)*jan.price AS Revenue
+FROM BIT_DB.JanSales jan
+WHERE LENGTH (jan.orderID)=6
+AND jan.orderID IS NOT NULL
+GROUP BY jan.Product
+
+SELECT feb.Product, feb.Quantity, SUM (feb.Quantity)*feb.price AS revenue
+FROM BIT_DB.FebSales feb
+WHERE feb.location ='548 Lincoln St, Seattle, WA 98101'
+AND LENGTH(feb.orderID)=6
+AND feb.orderID IS NOT NULL
+
+SELECT COUNT(c.acctnum), AVG(feb.Quantity*feb.price)
+FROM BIT_DB.customers c
+LEFT JOIN BIT_DB.FebSales feb
+ON c.order_id=feb.orderID
+WHERE feb.Quantity>2
+AND LENGTH(feb.orderID)=6
+AND feb.orderID IS NOT NULL
