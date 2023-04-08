@@ -1,3 +1,9 @@
+# I obtained Spotify data from Kaggle for this project.
+# I then established a table to store Spotify data in.
+# Finally, I ran SQL queries on the data to perform analytics. 
+
+
+#Creating the table: 
 CREATE TABLE BIT_DB.Spotifydata (
 id integer PRIMARY KEY,
 artist_name varchar NOT NULL,
@@ -17,6 +23,10 @@ valence decimal(4,3) NOT NULL,
 tempo decimal(6,3) NOT NULL,
 duration_ms integer NOT NULL,
 time_signature integer NOT NULL )
+
+#Then I inserted the Spotify Data .csv into the table.
+
+#Next, I explored the data using the following SQL. 
 
 -- what is the highest popularity rating
 SELECT MAX(sp.popularity)
